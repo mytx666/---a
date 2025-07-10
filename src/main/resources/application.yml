@@ -1,0 +1,57 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  application:
+    name: agricultural-material-management-system
+  
+  # 数据库配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/agricultural_material_management?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: ymy100861
+    
+  # 文件上传配置
+  servlet:
+    multipart:
+      max-file-size: 2MB
+      max-request-size: 10MB
+      
+  # Jackson配置
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8
+    default-property-inclusion: non_null
+
+# MyBatis-Plus配置
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+      logic-delete-field: deleted
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+  mapper-locations: classpath*:/mapper/**/*.xml
+
+# 日志配置
+logging:
+  level:
+    com.data.agricultural_material_management_system: debug
+    org.springframework.web: debug
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# 自定义配置
+app:
+  jwt:
+    secret: agricultural-material-management-secret-key
+    expiration: 86400000  # 24小时
+  file:
+    upload-path: ./uploads/
+    allowed-types: jpg,jpeg,png,gif,pdf,doc,docx,xls,xlsx
