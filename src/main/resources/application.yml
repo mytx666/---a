@@ -10,9 +10,9 @@ spring:
   # 数据库配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/agricultural_material_management?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai
-    username: root
-    password: ymy100861
+    url: jdbc:mysql://124.70.197.33:3306/mannger?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=Asia/Shanghai
+    username: mannger
+    password: mytx666
     
   # 文件上传配置
   servlet:
